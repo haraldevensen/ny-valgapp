@@ -5,6 +5,8 @@ import { Link, useHistory } from "react-router-dom"
 import CenteredContainer from "./CenteredContainer"
 
 export default function Signup() {
+  const fornavnRef = useRef()
+  const etternavnRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
@@ -23,7 +25,7 @@ export default function Signup() {
     try {
       setError("")
       setLoading(true)
-      await signup(emailRef.current.value, passwordRef.current.value)
+      await signup(fornavnRef.current.value, etternavnRef.current.value, emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
       setError("Det skjedde en feil, vennligst prøv igjen")
@@ -39,6 +41,14 @@ export default function Signup() {
           <h2 className="text-center mb-4">Registrering</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="fornavn">
+              <Form.Label>Fornavn</Form.Label>
+              <Form.Control type="name" ref={fornavnRef} required />
+            </Form.Group>
+            <Form.Group id="etternavn">
+              <Form.Label>Etternavn</Form.Label>
+              <Form.Control type="name" ref={etternavnRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>E-post</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
