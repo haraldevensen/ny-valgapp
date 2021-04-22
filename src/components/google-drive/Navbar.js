@@ -21,14 +21,12 @@ export default function NavbarComponent() {
 
     return (
         <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Vestfold valgapp</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/">Vestfold valgapp</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Side 1</Nav.Link>
-                    <Nav.Link href="#home">Side 2</Nav.Link>
-                    <Nav.Link href="#home">Side 3</Nav.Link>
-                    <Nav.Link as={Link} to="user">Side 4</Nav.Link>
+                    <Nav.Link as={Link} to="avstemming">Avstemming</Nav.Link>
+                    <Nav.Link as={Link} to="nominering">Nominering</Nav.Link>
                 </Nav>
                 <Nav>
                 <Nav.Link as={Link} to="user">Min side</Nav.Link>

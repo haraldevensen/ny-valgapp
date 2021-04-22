@@ -8,6 +8,8 @@ import PrivateRoute from "./authentication/PrivateRoute"
 import ForgotPassword from "./authentication/ForgotPassword"
 import UpdateProfile from "./google-drive/UpdateProfile"
 import Dashboard from "./google-drive/Dashboard"
+import Avstemming from "./google-drive/Avstemming"
+import Nominering from "./google-drive/Nominering"
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
           <AuthProvider>
             <Switch>
               {/* Drive */}
-              <PrivateRoute exact path ="/" component ={Dashboard}></PrivateRoute>
+              <PrivateRoute exact path ="/" component ={Dashboard} />
+              <PrivateRoute path="/avstemming" component={Avstemming} />
+              <PrivateRoute path="/nominering" component={Nominering} />
               {/* Profile */}
               <PrivateRoute path="/user" component={Profile} />
               <PrivateRoute path="/update-profile" component={UpdateProfile} />
