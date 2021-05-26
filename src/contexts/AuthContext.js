@@ -11,11 +11,8 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  async function signup(fornavn, etternavn, email, password) {
-    await auth.createUserWithEmailAndPassword(email, password)
-    return this.auth.currentUser.updateProfile({
-      displayname: fornavn, etternavn
-    })
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword(email, password)
   }
 
   function login(email, password) {

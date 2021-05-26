@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
 import CenteredContainer from "./CenteredContainer"
 
@@ -19,9 +19,9 @@ export default function ForgotPassword() {
       setError("")
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage("Vennligst sjekk e-posten din for videre instruksjoner.")
+      setMessage("Sjekk e-posten din for videre instruksjoner.")
     } catch {
-      setError("Klarte ikke å tilbakestille passordet.")
+      setError("Det skjedde en feil, vennligst prøv igjen.")
     }
 
     setLoading(false)

@@ -1,16 +1,13 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import CenteredContainer from "./CenteredContainer"
 
-export default function Signup() {
-  const fornavnRef = useRef()
-  const etternavnRef = useRef()
+export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
-  const { signup } = useAuth()
+  const { login } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -18,17 +15,13 @@ export default function Signup() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passordene er ikke like")
-    }
-
     try {
       setError("")
       setLoading(true)
-      await signup(fornavnRef.current.value, etternavnRef.current.value, emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
-      setError("Det skjedde en feil, vennligst prøv igjen")
+      setError("Det skjedde en feil, vennligst prøv igjen.")
     }
 
     setLoading(false)
@@ -38,17 +31,9 @@ export default function Signup() {
     <CenteredContainer>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Registrering</h2>
+          <h2 className="text-center mb-4">Logg inn</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group id="fornavn">
-              <Form.Label>Fornavn</Form.Label>
-              <Form.Control type="name" ref={fornavnRef} required />
-            </Form.Group>
-            <Form.Group id="etternavn">
-              <Form.Label>Etternavn</Form.Label>
-              <Form.Control type="name" ref={etternavnRef} required />
-            </Form.Group>
             <Form.Group id="email">
               <Form.Label>E-post</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -57,18 +42,17 @@ export default function Signup() {
               <Form.Label>Passord</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Gjenta passord</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              Registrer
+              Logg inn
             </Button>
           </Form>
+          <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Glemt passord?</Link>
+          </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Har du allerede en konto? <Link to="/login">Logg inn</Link>
+        Trenger du en konto? <Link to="/signup">Registrer her</Link>
       </div>
     </CenteredContainer>
   )
