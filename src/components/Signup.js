@@ -20,7 +20,7 @@ export default function Signup() {
       return setError("Passordene er ikke like.");
     }
     if(!emailRef.current.value.includes("@usn.no")){
-      return setError("Eposten er ikke gyldig");
+      return setError("E-posten er ikke gyldig.");
     }
 
     try {

@@ -25,10 +25,10 @@ export default function UpdateProfile() {
 
     Promise.all(promises)
       .then(() => {
-        history.push("/update-profile");
+        history.push("/min-side");
       })
       .catch(() => {
-        setError("Klarte ikke å oppdatere profil");
+        setError("Klarte ikke å oppdatere profil.");
       })
       .finally(() => {
         setLoading(false);
