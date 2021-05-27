@@ -33,7 +33,7 @@ export default function NavbarComponent() {
           </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link as={Link} to="/user">
+          <Nav.Link as={Link} to="/update-profile">
             Min side
           </Nav.Link>
         </Nav>
