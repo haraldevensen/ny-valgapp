@@ -47,12 +47,12 @@ export default function Login() {
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Glemt passord?</Link>
+            <Link to="/glemt-passord">Glemt passord?</Link>
           </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Trenger du en konto? <Link to="/signup">Registrer her</Link>
+        Trenger du en konto? <Link to="/registrering">Registrer her</Link>
       </div>
     </CenteredContainer>
   );

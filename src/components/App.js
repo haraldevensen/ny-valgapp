@@ -21,13 +21,13 @@ function App() {
           <PrivateRoute path="/avstemming" component={Avstemming} />
 
           {/* Brukersider */}
-          <PrivateRoute path="/update-profile" component={UpdateProfile} />
-          <PrivateRoute path="/update-password" component={UpdatePassword} />
+          <PrivateRoute path="/min-side" component={UpdateProfile} />
+          <PrivateRoute path="/endre-passord" component={UpdatePassword} />
 
           {/* Autenisering */}
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/registrering" component={Signup} />
+          <Route path="/innlogging" component={Login} />
+          <Route path="/glemt-passord" component={ForgotPassword} />
         </Switch>
       </AuthProvider>
     </Router>

@@ -31,7 +31,7 @@ export default function ForgotPassword() {
     <CenteredContainer>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Tilbakestill passord</h2>
+          <h2 className="text-center mb-4">Glemt passord</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
@@ -44,12 +44,12 @@ export default function ForgotPassword() {
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/login">Logg inn</Link>
+            <Link to="/innlogging">Logg inn</Link>
           </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Trenger du en konto? <Link to="/signup">Registrer her</Link>
+        Trenger du en konto? <Link to="/registrering">Registrer her</Link>
       </div>
     </CenteredContainer>
   );

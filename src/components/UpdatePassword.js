@@ -55,11 +55,11 @@ export default function UpdateProfile() {
                     Passord må bestå av minst 6 tegn.
                   </Form.Text>
                 </Form.Label>
-                <Form.Control type="password" ref={passwordRef} />
+                <Form.Control type="password" ref={passwordRef} required/>
               </Form.Group>
               <Form.Group id="password-confirm">
                 <Form.Label>Gjenta nytt passord</Form.Label>
-                <Form.Control type="password" ref={passwordConfirmRef} />
+                <Form.Control type="password" ref={passwordConfirmRef} required/>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Oppdater passord
@@ -68,7 +68,7 @@ export default function UpdateProfile() {
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/update-profile">Avbryt</Link>
+          <Link to="/min-side">Avbryt</Link>
         </div>
       </CenteredContainer>
     </>
