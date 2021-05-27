@@ -6,7 +6,6 @@ import CenteredContainer from "./CenteredContainer";
 import Navbar from "./Navbar";
 
 export default function UpdateProfile() {
-
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { updatePassword } = useAuth();
@@ -23,7 +22,6 @@ export default function UpdateProfile() {
     const promises = [];
     setLoading(true);
     setError("");
-
 
     if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value));
@@ -51,23 +49,17 @@ export default function UpdateProfile() {
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group id="password">
-                <Form.Label>Passord</Form.Label>
-                <Form.Control
-                  type="password"
-                  ref={passwordRef}
-                  placeholder="La stå tomt for å beholde passord"
-                />
-                <Form.Text className="text-muted">
-                  Passordet må bestå av minst 6 tegn.
-                </Form.Text>
+                <Form.Label>
+                  Nytt passord
+                  <Form.Text className="text-muted">
+                    Passord må bestå av minst 6 tegn.
+                  </Form.Text>
+                </Form.Label>
+                <Form.Control type="password" ref={passwordRef} />
               </Form.Group>
               <Form.Group id="password-confirm">
-                <Form.Label>Gjenta passord</Form.Label>
-                <Form.Control
-                  type="password"
-                  ref={passwordConfirmRef}
-                  placeholder="La stå tomt for å beholde passord"
-                />
+                <Form.Label>Gjenta nytt passord</Form.Label>
+                <Form.Control type="password" ref={passwordConfirmRef} />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Oppdater passord

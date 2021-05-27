@@ -7,9 +7,7 @@ import Navbar from "./Navbar";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { currentUser, updatePassword, updateEmail } = useAuth();
+  const { currentUser, updateEmail } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();

@@ -44,11 +44,13 @@ export default function Signup() {
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>Passord</Form.Label>
+              <Form.Label>
+                Passord
+                <Form.Text className="text-muted">
+                  Passord må bestå av minst 6 tegn.
+                </Form.Text>
+              </Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
-              <Form.Text className="text-muted">
-                Passord må bestå av minst 6 tegn.
-              </Form.Text>
             </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Gjenta passord</Form.Label>
