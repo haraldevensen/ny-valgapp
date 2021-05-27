@@ -1,30 +1,30 @@
-import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
-import { useAuth } from "../contexts/AuthContext"
-import { Link } from "react-router-dom"
-import CenteredContainer from "./CenteredContainer"
+import React, { useRef, useState } from "react";
+import { Form, Button, Card, Alert } from "react-bootstrap";
+import { useAuth } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
+import CenteredContainer from "./CenteredContainer";
 
 export default function ForgotPassword() {
-  const emailRef = useRef()
-  const { resetPassword } = useAuth()
-  const [error, setError] = useState("")
-  const [message, setMessage] = useState("")
-  const [loading, setLoading] = useState(false)
+  const emailRef = useRef();
+  const { resetPassword } = useAuth();
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      setMessage("")
-      setError("")
-      setLoading(true)
-      await resetPassword(emailRef.current.value)
-      setMessage("Sjekk e-posten din for videre instruksjoner.")
+      setMessage("");
+      setError("");
+      setLoading(true);
+      await resetPassword(emailRef.current.value);
+      setMessage("Sjekk e-posten din for videre instruksjoner.");
     } catch {
-      setError("Det skjedde en feil, vennligst prøv igjen.")
+      setError("Det skjedde en feil, vennligst prøv igjen.");
     }
 
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
@@ -52,5 +52,5 @@ export default function ForgotPassword() {
         Trenger du en konto? <Link to="/signup">Registrer her</Link>
       </div>
     </CenteredContainer>
-  )
+  );
 }

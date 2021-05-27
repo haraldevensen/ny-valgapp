@@ -1,24 +1,24 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext"
-import { Link, useHistory } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext";
+import { Link, useHistory } from "react-router-dom";
 
 export default function NavbarComponent() {
-    // eslint-disable-next-line
-    const [error, setError] = useState("")
-    const { logout } = useAuth()
-    const history = useHistory()
-  
-    async function handleLogout() {
-      setError("")
-  
-      try {
-        await logout()
-        history.push("/login")
-      } catch {
-        setError("Det skjedde en feil, vennligst prøv igjen")
-      }
+  // eslint-disable-next-line
+  const [error, setError] = useState("");
+  const { logout } = useAuth();
+  const history = useHistory();
+
+  async function handleLogout() {
+    setError("");
+
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Det skjedde en feil, vennligst prøv igjen");
     }
+  }
 
   return (
     <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">

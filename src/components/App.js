@@ -13,24 +13,24 @@ import Dashboard from "./Dashboard";
 
 function App() {
   return (
-      <Router>
-        <AuthProvider>
-          <Switch>
-            {/* Funksjoner */}
-            <PrivateRoute exact path="/" component={Dashboard} />
-            <PrivateRoute path="/avstemming" component={Avstemming} />
+    <Router>
+      <AuthProvider>
+        <Switch>
+          {/* Funksjoner */}
+          <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute path="/avstemming" component={Avstemming} />
 
-            {/* Brukersider */}
-            <PrivateRoute path="/user" component={Profile} />
-            <PrivateRoute path="/update-profile" component={UpdateProfile} />
+          {/* Brukersider */}
+          <PrivateRoute path="/user" component={Profile} />
+          <PrivateRoute path="/update-profile" component={UpdateProfile} />
 
-            {/* Autenisering */}
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
-            <Route path="/forgot-password" component={ForgotPassword} />
-          </Switch>
-        </AuthProvider>
-      </Router>
+          {/* Autenisering */}
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+        </Switch>
+      </AuthProvider>
+    </Router>
   );
 }
 
