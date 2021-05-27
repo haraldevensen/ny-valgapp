@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar"
 import { db } from "../firebase";
 
 class Avstemming extends React.Component {
@@ -23,7 +24,8 @@ class Avstemming extends React.Component {
   }
   
   render(){
-    return(
+    return <>
+    <Navbar />
       <div className="Avstemming">
         <h1>Liste over kandidater</h1>
         {
@@ -31,13 +33,16 @@ class Avstemming extends React.Component {
           this.state.users.map( user => {
             return (
               <div>
-                <p>{user.name}</p>
+                <p><strong>Navn: </strong>{user.name}</p>
+                <p><strong>Nummer: </strong>{user.phone}</p>
+                <p><strong>Nominasjonstekst: </strong>{user.nomtekst}</p>
+                <br />
               </div>
             )
           })
         }
       </div>
-    )
+    </>
   }
 }
 

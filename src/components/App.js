@@ -28,6 +28,9 @@ function App() {
           <Route path="/registrering" component={Signup} />
           <Route path="/innlogging" component={Login} />
           <Route path="/glemt-passord" component={ForgotPassword} />
+          
+          {/* Testing */}
+          
         </Switch>
       </AuthProvider>
     </Router>

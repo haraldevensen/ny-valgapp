@@ -14,7 +14,7 @@ export default function NavbarComponent() {
 
     try {
       await logout();
-      history.push("/login");
+      history.push("/innlogging");
     } catch {
       setError("Det skjedde en feil, vennligst prøv igjen");
     }
