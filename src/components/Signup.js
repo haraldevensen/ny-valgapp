@@ -19,6 +19,9 @@ export default function Signup() {
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passordene er ikke like.");
     }
+    if(!emailRef.current.value.includes("@usn.no")){
+      return setError("Eposten er ikke gyldig");
+    }
 
     try {
       setError("");
