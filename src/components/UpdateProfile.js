@@ -1,13 +1,17 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Col } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth, db } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
 import Navbar from "./Navbar";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
-  const { currentUser, updateEmail } = useAuth();
+  const nameRef = useRef();
+  const valgbarRef = useRef();
+  const phoneRef = useRef();
+  const nomtekstRef = useRef();
+  const { currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -18,10 +22,6 @@ export default function UpdateProfile() {
     const promises = [];
     setLoading(true);
     setError("");
-
-    if (emailRef.current.value !== currentUser.email) {
-      promises.push(updateEmail(emailRef.current.value));
-    }
 
     Promise.all(promises)
       .then(() => {
@@ -53,23 +53,24 @@ export default function UpdateProfile() {
                   defaultValue={currentUser.email}
                 />
               </Form.Group>
-              <Form.Group id="email">
+              <Form.Group id="name">
                 <Form.Label>Navn</Form.Label>
                 <Form.Control
                   type="text"
+                  ref={nameRef}
                 />
               </Form.Group>
               <Form.Row>
                 <Form.Group as={Col} controlId="formGridState">
                   <Form.Label>Stiller du til valg?</Form.Label>
-                  <Form.Control as="select" className="valgbar" name="valgbar">
+                  <Form.Control as="select" className="valgbar" name="valgbar" ref={valgbarRef}>
                     <option value="Ja">Ja</option>
                     <option value="Nei">Nei</option>
                   </Form.Control>
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Telefonnummer</Form.Label>
-                  <Form.Control type="text" name="phone" />
+                  <Form.Control type="text" name="phone" ref={phoneRef} />
                 </Form.Group>
               </Form.Row>
               <Form.Group className="nominasjonstekst">
@@ -79,6 +80,7 @@ export default function UpdateProfile() {
                   name="nomtekst"
                   as="textarea"
                   rows={5}
+                  ref={nomtekstRef}
                 />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
