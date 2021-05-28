@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Card, Alert, Col } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
@@ -51,6 +51,34 @@ export default function UpdateProfile() {
                   ref={emailRef}
                   readOnly
                   defaultValue={currentUser.email}
+                />
+              </Form.Group>
+              <Form.Group id="email">
+                <Form.Label>Navn</Form.Label>
+                <Form.Control
+                  type="text"
+                />
+              </Form.Group>
+              <Form.Row>
+                <Form.Group as={Col} controlId="formGridState">
+                  <Form.Label>Stiller du til valg?</Form.Label>
+                  <Form.Control as="select" className="valgbar" name="valgbar">
+                    <option value="Ja">Ja</option>
+                    <option value="Nei">Nei</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group as={Col}>
+                  <Form.Label>Telefonnummer</Form.Label>
+                  <Form.Control type="text" name="phone" />
+                </Form.Group>
+              </Form.Row>
+              <Form.Group className="nominasjonstekst">
+                <Form.Label>Nominasjonstekst</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="nomtekst"
+                  as="textarea"
+                  rows={5}
                 />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
