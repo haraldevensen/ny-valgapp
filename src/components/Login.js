@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Login() {
   const emailRef = useRef();
@@ -45,7 +45,7 @@ export default function Login() {
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              <FontAwesomeIcon icon={faSignInAlt} /> Logg inn
+              Logg inn <FontAwesomeIcon icon={faSignInAlt} />
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
@@ -54,7 +54,10 @@ export default function Login() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Trenger du en konto? <Link to="/registrering">Registrer her</Link>
+        Trenger du en konto?{" "}
+        <Link to="/registrering">
+          Registrer her <FontAwesomeIcon icon={faUserPlus} />
+        </Link>
       </div>
     </CenteredContainer>
   );

@@ -42,7 +42,7 @@ export default function NavbarComponent() {
           <FontAwesomeIcon icon={faUser} /> Min side
           </Nav.Link>
         </Nav>
-        <Button variant="outline-info" onClick={handleLogout}>
+        <Button variant="outline-light" onClick={handleLogout}>
         <FontAwesomeIcon icon={faSignOutAlt} /> Logg ut
         </Button>
       </Navbar.Collapse>

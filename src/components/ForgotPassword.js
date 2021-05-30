@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function ForgotPassword() {
   const emailRef = useRef();
@@ -44,12 +46,17 @@ export default function ForgotPassword() {
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/innlogging">Logg inn</Link>
+            <Link to="/innlogging">
+              Logg inn <FontAwesomeIcon icon={faSignInAlt} />
+            </Link>
           </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Trenger du en konto? <Link to="/registrering">Registrer her</Link>
+        Trenger du en konto?{" "}
+        <Link to="/registrering">
+          Registrer her <FontAwesomeIcon icon={faUserPlus} />
+        </Link>
       </div>
     </CenteredContainer>
   );

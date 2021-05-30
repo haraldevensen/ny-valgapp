@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -62,13 +62,16 @@ export default function Signup() {
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              <FontAwesomeIcon icon={faUserPlus} /> Registrer
+              Registrer <FontAwesomeIcon icon={faUserPlus} />
             </Button>
           </Form>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Har du allerede en konto? <Link to="/innlogging">Logg inn</Link>
+        Har du allerede en konto?{" "}
+        <Link to="/innlogging">
+          Logg inn <FontAwesomeIcon icon={faSignInAlt} />
+        </Link>
       </div>
     </CenteredContainer>
   );
