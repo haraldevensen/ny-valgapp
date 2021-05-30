@@ -4,6 +4,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
 import Navbar from "./Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function UpdateProfile() {
   const passwordRef = useRef();
@@ -62,13 +64,13 @@ export default function UpdateProfile() {
                 <Form.Control type="password" ref={passwordConfirmRef} required/>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
-                Oppdater passord
+              <FontAwesomeIcon icon={faSyncAlt} /> Oppdater passord
               </Button>
             </Form>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/min-side">Avbryt</Link>
+          <Link to="/min-side"> <FontAwesomeIcon icon={faTimes} /> Avbryt</Link>
         </div>
       </CenteredContainer>
     </>

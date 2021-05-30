@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,12 +39,12 @@ export default function NavbarComponent() {
         </Nav>
         <Nav>
           <Nav.Link as={Link} to="/min-side">
-          <FontAwesomeIcon icon={faUser} /> Min side
+            <FontAwesomeIcon icon={faUser} /> Min side
+          </Nav.Link>
+          <Nav.Link onClick={handleLogout}>
+            <FontAwesomeIcon icon={faSignOutAlt} /> Logg ut
           </Nav.Link>
         </Nav>
-        <Button variant="outline-light" onClick={handleLogout}>
-        <FontAwesomeIcon icon={faSignOutAlt} /> Logg ut
-        </Button>
       </Navbar.Collapse>
     </Navbar>
   );

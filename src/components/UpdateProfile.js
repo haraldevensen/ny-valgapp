@@ -4,6 +4,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
 import Navbar from "./Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSave, faUserShield } from "@fortawesome/free-solid-svg-icons";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
@@ -84,13 +86,13 @@ export default function UpdateProfile() {
                 />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
-                Lagre
+              <FontAwesomeIcon icon={faSave} /> Lagre
               </Button>
             </Form>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/endre-passord">Endre passord</Link>
+          <Link to="/endre-passord"><FontAwesomeIcon icon={faUserShield} /> Endre passord</Link>
         </div>
       </CenteredContainer>
     </>
