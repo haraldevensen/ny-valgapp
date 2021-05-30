@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavbarComponent() {
   // eslint-disable-next-line
@@ -31,14 +33,17 @@ export default function NavbarComponent() {
           <Nav.Link as={Link} to="/avstemming">
             Avstemming
           </Nav.Link>
+          <Nav.Link as={Link} to="/nominering">
+            Nominering
+          </Nav.Link>
         </Nav>
         <Nav>
           <Nav.Link as={Link} to="/min-side">
-            Min side
+          <FontAwesomeIcon icon={faUser} /> Min side
           </Nav.Link>
         </Nav>
         <Button variant="outline-info" onClick={handleLogout}>
-          Logg ut
+        <FontAwesomeIcon icon={faSignOutAlt} /> Logg ut
         </Button>
       </Navbar.Collapse>
     </Navbar>

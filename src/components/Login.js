@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Login() {
   const emailRef = useRef();
@@ -43,7 +45,7 @@ export default function Login() {
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              Logg inn
+              <FontAwesomeIcon icon={faSignInAlt} /> Logg inn
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">

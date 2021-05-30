@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -19,7 +21,7 @@ export default function Signup() {
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passordene er ikke like.");
     }
-    if(!emailRef.current.value.includes("@usn.no")){
+    if (!emailRef.current.value.includes("@usn.no")) {
       return setError("E-posten er ikke gyldig.");
     }
 
@@ -60,7 +62,7 @@ export default function Signup() {
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              Registrer
+              <FontAwesomeIcon icon={faUserPlus} /> Registrer
             </Button>
           </Form>
         </Card.Body>

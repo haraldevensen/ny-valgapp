@@ -10,6 +10,7 @@ import UpdateProfile from "./UpdateProfile";
 import Avstemming from "./Avstemming";
 import Dashboard from "./Dashboard";
 import UpdatePassword from "./UpdatePassword";
+import Nominering from "./Nominering"
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route path="/glemt-passord" component={ForgotPassword} />
           
           {/* Testing */}
-          
+          <PrivateRoute path="/nominering" component={Nominering} />
         </Switch>
       </AuthProvider>
     </Router>
