@@ -4,13 +4,15 @@ import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
-// Funksjoner (Innlogget bruker)
-import MinSide from "./MinSide";
+// Sider (Innlogget bruker)
 import Avstemming from "./Avstemming";
 import Dashboard from "./Dashboard";
-import EndrePassord from "./EndrePassord";
-import Nominering from "./Nominering";
 import Support from "./Support";
+
+// Selvbetjente sider (Innlogget bruker)
+import MinSide from "./selvbetjening/MinSide";
+import EndrePassord from "./selvbetjening/EndrePassord";
+import Nominering from "./selvbetjening/Nominering";
 
 // Autentisering (Bruker ikke innlogget)
 import LoggInn from "./autentisering/LoggInn";

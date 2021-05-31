@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { db } from "../firebase";
-import Navbar from "./Navbar";
-import SentrertBoks from "./SentrertBoks";
+import { db } from "../../firebase";
+import Navbar from "../Navbar";
+import SentrertBoks from "../SentrertBoks";
 import { Card, Form, Alert, Button, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
