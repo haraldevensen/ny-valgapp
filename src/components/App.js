@@ -6,7 +6,7 @@ import PrivateRoute from "./PrivateRoute";
 
 // Sider (Innlogget bruker)
 import Avstemming from "./Avstemming";
-import Dashboard from "./Dashboard";
+import Landingsside from "./Landingsside";
 import Support from "./Support";
 
 // Selvbetjente sider (Innlogget bruker)
@@ -25,7 +25,7 @@ function App() {
       <AuthProvider>
         <Switch>
           {/* Funksjoner */}
-          <PrivateRoute exact path="/" component={Dashboard} />
+          <PrivateRoute exact path="/" component={Landingsside} />
           <PrivateRoute path="/avstemming" component={Avstemming} />
           <PrivateRoute path="/nominering" component={Nominering} />
           <PrivateRoute path="/support" component={Support} />
