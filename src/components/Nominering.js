@@ -62,7 +62,12 @@ const Nominering = () => {
                 />
               </Form.Group>
               <Form.Group className="nominasjonstekst">
-                <Form.Label>Nominasjonstekst</Form.Label>
+                <Form.Label>
+                  Nominasjonstekst
+                  <Form.Text className="text-muted">
+                    "ENDRE/SLETT MEG før innlevering"
+                  </Form.Text>
+                </Form.Label>
                 <Form.Control
                   value={nomtekst}
                   onChange={(e) => setNomtekst(e.target.value)}
