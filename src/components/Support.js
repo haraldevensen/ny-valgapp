@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Navbar from "./Navbar";
 import CenteredContainer from "./CenteredContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
