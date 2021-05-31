@@ -57,20 +57,27 @@ export default function EndrePassord() {
                     Passord må bestå av minst 6 tegn.
                   </Form.Text>
                 </Form.Label>
-                <Form.Control type="password" ref={passwordRef} required/>
+                <Form.Control type="password" ref={passwordRef} required />
               </Form.Group>
               <Form.Group id="password-confirm">
                 <Form.Label>Gjenta nytt passord</Form.Label>
-                <Form.Control type="password" ref={passwordConfirmRef} required/>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
-              <FontAwesomeIcon icon={faSyncAlt} /> Oppdater passord
+                <FontAwesomeIcon icon={faSyncAlt} /> Oppdater passord
               </Button>
             </Form>
           </Card.Body>
         </Card>
         <div className="w-100 text-center mt-2">
-          <Link to="/min-side"> <FontAwesomeIcon icon={faTimes} /> Avbryt</Link>
+          <Link to="/min-side">
+            {" "}
+            <FontAwesomeIcon icon={faTimes} /> Avbryt
+          </Link>
         </div>
       </SentrertBoks>
     </>

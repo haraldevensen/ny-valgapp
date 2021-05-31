@@ -43,7 +43,9 @@ class Support extends React.Component {
                 <Card.Text>
                   Noe du ikke får til? Vi er her for å hjelpe deg!
                 </Card.Text>
-                <Card.Text>Vi er tilgjengelig på e-post, telefon og livechat.</Card.Text>
+                <Card.Text>
+                  Vi er tilgjengelig på e-post, telefon og livechat.
+                </Card.Text>
                 <Card.Text>
                   <strong>
                     <FontAwesomeIcon icon={faEnvelope} /> &nbsp;{" "}
@@ -63,7 +65,8 @@ class Support extends React.Component {
                     return (
                       <Card.Text>
                         <strong>
-                          <FontAwesomeIcon icon={faComments} />&nbsp;{" "}
+                          <FontAwesomeIcon icon={faComments} />
+                          &nbsp;{" "}
                         </strong>
                         {chat.tilgjengelighet}
                       </Card.Text>

@@ -3,7 +3,11 @@ import { Navbar, Nav } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeadset, faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeadset,
+  faSignOutAlt,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function NavbarComponent() {
   // eslint-disable-next-line
@@ -38,7 +42,7 @@ export default function NavbarComponent() {
           </Nav.Link>
         </Nav>
         <Nav>
-        <Nav.Link as={Link} to="/support">
+          <Nav.Link as={Link} to="/support">
             <FontAwesomeIcon icon={faHeadset} /> Support
           </Nav.Link>
           <Nav.Link as={Link} to="/min-side">

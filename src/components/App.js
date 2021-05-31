@@ -9,8 +9,8 @@ import MinSide from "./MinSide";
 import Avstemming from "./Avstemming";
 import Dashboard from "./Dashboard";
 import EndrePassord from "./EndrePassord";
-import Nominering from "./Nominering"
-import Support from "./Support"
+import Nominering from "./Nominering";
+import Support from "./Support";
 
 // Autentisering (Bruker ikke innlogget)
 import LoggInn from "./autentisering/LoggInn";
@@ -25,6 +25,8 @@ function App() {
           {/* Funksjoner */}
           <PrivateRoute exact path="/" component={Dashboard} />
           <PrivateRoute path="/avstemming" component={Avstemming} />
+          <PrivateRoute path="/nominering" component={Nominering} />
+          <PrivateRoute path="/support" component={Support} />
 
           {/* Brukersider */}
           <PrivateRoute path="/min-side" component={MinSide} />
@@ -34,11 +36,6 @@ function App() {
           <Route path="/registrering" component={Registrering} />
           <Route path="/innlogging" component={LoggInn} />
           <Route path="/glemt-passord" component={GlemtPassord} />
-          
-          {/* Testing */}
-          <PrivateRoute path="/nominering" component={Nominering} />
-          <PrivateRoute path="/support" component={Support} />
-
         </Switch>
       </AuthProvider>
     </Router>
