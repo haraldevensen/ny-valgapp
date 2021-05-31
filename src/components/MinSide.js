@@ -1,17 +1,17 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert, Col } from "react-bootstrap";
+import { Form, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import CenteredContainer from "./CenteredContainer";
+import SentrertBoks from "./SentrertBoks";
 import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSave, faUserShield } from "@fortawesome/free-solid-svg-icons";
+import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
-export default function UpdateProfile() {
+export default function MinSide() {
   const emailRef = useRef();
   const { currentUser } = useAuth();
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const history = useHistory();
 
   function handleSubmit(e) {
@@ -36,7 +36,7 @@ export default function UpdateProfile() {
   return (
     <>
       <Navbar />
-      <CenteredContainer>
+      <SentrertBoks>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Min side</h2>
@@ -59,7 +59,7 @@ export default function UpdateProfile() {
             </div>
           </Card.Body>
         </Card>
-      </CenteredContainer>
+      </SentrertBoks>
     </>
   );
 }

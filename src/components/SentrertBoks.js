@@ -1,0 +1,15 @@
+import React from "react";
+import { Container } from "react-bootstrap";
+
+export default function SentrertBoks({ children }) {
+  return (
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ marginTop: "100px" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        {children}
+      </div>
+    </Container>
+  );
+}

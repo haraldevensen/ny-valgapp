@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { db } from "../firebase";
 import Navbar from "./Navbar";
-import CenteredContainer from "./CenteredContainer";
-import { Card, Form, Alert } from "react-bootstrap";
+import SentrertBoks from "./SentrertBoks";
+import { Card, Form, Alert, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 const Nominering = () => {
   const [name, setName] = useState("");
@@ -15,31 +17,33 @@ const Nominering = () => {
     e.preventDefault();
     setLoading(true);
 
-    db.collection("users")
+    db.collection("nominering")
       .add({
         name: name,
         tlf: tlf,
         nomtekst: nomtekst,
       })
-      
+
       .then(() => {
-        setMessage("Din registrering er nå registrert. Du vil motta en e-post når den er godkjent av admin og har blitt publisert på avstemmingssiden.");
+        setMessage(
+          "Din nominasjon er nå registrert. Du vil motta en e-post når den er godkjent av admin og har blitt publisert på avstemmingssiden."
+        );
       })
       .catch((error) => {
         alert(error.message);
       });
 
-      setLoading(false);
+    setLoading(false);
   };
 
   return (
     <>
       <Navbar />
-      <CenteredContainer>
+      <SentrertBoks>
         <Card>
           <Card.Body>
             <Form onSubmit={handleSubmit}>
-              <h2 className="text-center mb-4">Registrering</h2>
+              <h2 className="text-center mb-4">Nominering</h2>
               {message && <Alert variant="success">{message}</Alert>}
               <Form.Group id="name">
                 <Form.Label>Navn</Form.Label>
@@ -64,13 +68,16 @@ const Nominering = () => {
                   onChange={(e) => setNomtekst(e.target.value)}
                   as="textarea"
                   rows={5}
+                  required
                 />
               </Form.Group>
-              <button type="submit">Submit</button>
+              <Button disabled={loading} className="w-100" type="submit">
+                <FontAwesomeIcon icon={faPaperPlane} /> Send nominasjon
+              </Button>
             </Form>
           </Card.Body>
         </Card>
-      </CenteredContainer>
+      </SentrertBoks>
     </>
   );
 };

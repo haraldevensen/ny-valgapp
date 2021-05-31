@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
-export default function CenteredContainer({ children }) {
+export default function SentrertBoksUtlogget({ children }) {
   return (
     <Container
       className="d-flex align-items-center justify-content-center"

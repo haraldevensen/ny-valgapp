@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Navbar from "./Navbar";
-import CenteredContainer from "./CenteredContainer";
+import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,7 +9,7 @@ export default function Support() {
   return (
     <>
       <Navbar />
-      <CenteredContainer>
+      <SentrertBoks>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Support</h2>
@@ -29,7 +29,7 @@ export default function Support() {
             </p>
           </Card.Body>
         </Card>
-      </CenteredContainer>
+      </SentrertBoks>
     </>
   );
 }

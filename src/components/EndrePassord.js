@@ -2,12 +2,12 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import CenteredContainer from "./CenteredContainer";
+import SentrertBoks from "./SentrertBoks";
 import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSyncAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-export default function UpdateProfile() {
+export default function EndrePassord() {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { updatePassword } = useAuth();
@@ -44,7 +44,7 @@ export default function UpdateProfile() {
   return (
     <>
       <Navbar />
-      <CenteredContainer>
+      <SentrertBoks>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-4">Endre passord</h2>
@@ -72,7 +72,7 @@ export default function UpdateProfile() {
         <div className="w-100 text-center mt-2">
           <Link to="/min-side"> <FontAwesomeIcon icon={faTimes} /> Avbryt</Link>
         </div>
-      </CenteredContainer>
+      </SentrertBoks>
     </>
   );
 }

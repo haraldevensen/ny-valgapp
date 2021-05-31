@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import CenteredContainer from "./CenteredContainer";
+import SentrertBoksUtlogget from "./SentrertBoksUtlogget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function Signup() {
+export default function Registrering() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
@@ -38,7 +38,7 @@ export default function Signup() {
   }
 
   return (
-    <CenteredContainer>
+    <SentrertBoksUtlogget>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Registrering</h2>
@@ -73,6 +73,6 @@ export default function Signup() {
           Logg inn <FontAwesomeIcon icon={faSignInAlt} />
         </Link>
       </div>
-    </CenteredContainer>
+    </SentrertBoksUtlogget>
   );
 }

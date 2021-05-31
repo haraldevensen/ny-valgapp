@@ -1,17 +1,21 @@
 import React from "react";
 import "./App.css";
-import Signup from "./Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
-import ForgotPassword from "./ForgotPassword";
-import UpdateProfile from "./UpdateProfile";
+
+// Funksjoner (Innlogget bruker)
+import MinSide from "./MinSide";
 import Avstemming from "./Avstemming";
 import Dashboard from "./Dashboard";
-import UpdatePassword from "./UpdatePassword";
+import EndrePassord from "./EndrePassord";
 import Nominering from "./Nominering"
 import Support from "./Support"
+
+// Autentisering (Bruker ikke innlogget)
+import LoggInn from "./autentisering/LoggInn";
+import Registrering from "./autentisering/Registrering";
+import GlemtPassord from "./autentisering/GlemtPassord";
 
 function App() {
   return (
@@ -23,13 +27,13 @@ function App() {
           <PrivateRoute path="/avstemming" component={Avstemming} />
 
           {/* Brukersider */}
-          <PrivateRoute path="/min-side" component={UpdateProfile} />
-          <PrivateRoute path="/endre-passord" component={UpdatePassword} />
+          <PrivateRoute path="/min-side" component={MinSide} />
+          <PrivateRoute path="/endre-passord" component={EndrePassord} />
 
           {/* Autenisering */}
-          <Route path="/registrering" component={Signup} />
-          <Route path="/innlogging" component={Login} />
-          <Route path="/glemt-passord" component={ForgotPassword} />
+          <Route path="/registrering" component={Registrering} />
+          <Route path="/innlogging" component={LoggInn} />
+          <Route path="/glemt-passord" component={GlemtPassord} />
           
           {/* Testing */}
           <PrivateRoute path="/nominering" component={Nominering} />
