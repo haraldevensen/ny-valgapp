@@ -19,6 +19,9 @@ import LoggInn from "./autentisering/LoggInn";
 import Registrering from "./autentisering/Registrering";
 import GlemtPassord from "./autentisering/GlemtPassord";
 
+// Testing
+import AvstemmingTest from "./AvstemmingTest";
+
 function App() {
   return (
     <Router>
@@ -38,6 +41,9 @@ function App() {
           <Route path="/registrering" component={Registrering} />
           <Route path="/innlogging" component={LoggInn} />
           <Route path="/glemt-passord" component={GlemtPassord} />
+          
+          {/* Testing */}
+          <PrivateRoute path="/sandkasse" component={AvstemmingTest} />
         </Switch>
       </AuthProvider>
     </Router>

@@ -5,7 +5,7 @@ export default function SentrertBoks({ children }) {
   return (
     <Container
       className="d-flex align-items-center justify-content-center"
-      style={{ marginTop: "100px" }}
+      style={{ marginTop: "5vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
         {children}
@@ -13,3 +13,4 @@ export default function SentrertBoks({ children }) {
     </Container>
   );
 }
+
