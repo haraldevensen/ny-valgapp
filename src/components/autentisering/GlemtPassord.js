@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
-import SentrertBoksUtlogget from "./SentrertBoksUtlogget";
+import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -30,7 +30,7 @@ export default function GlemtPassord() {
   }
 
   return (
-    <SentrertBoksUtlogget>
+    <SentrertBoks>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Glemt passord</h2>
@@ -58,6 +58,6 @@ export default function GlemtPassord() {
           Registrer her <FontAwesomeIcon icon={faUserPlus} />
         </Link>
       </div>
-    </SentrertBoksUtlogget>
+    </SentrertBoks>
   );
 }

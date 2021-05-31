@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import SentrertBoksUtlogget from "./SentrertBoksUtlogget";
+import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
@@ -38,7 +38,7 @@ export default function Registrering() {
   }
 
   return (
-    <SentrertBoksUtlogget>
+    <SentrertBoks>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Registrering</h2>
@@ -73,6 +73,6 @@ export default function Registrering() {
           Logg inn <FontAwesomeIcon icon={faSignInAlt} />
         </Link>
       </div>
-    </SentrertBoksUtlogget>
+    </SentrertBoks>
   );
 }
