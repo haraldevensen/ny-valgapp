@@ -11,6 +11,7 @@ import Avstemming from "./Avstemming";
 import Dashboard from "./Dashboard";
 import UpdatePassword from "./UpdatePassword";
 import Nominering from "./Nominering"
+import Support from "./Support"
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           
           {/* Testing */}
           <PrivateRoute path="/nominering" component={Nominering} />
+          <PrivateRoute path="/support" component={Support} />
+
         </Switch>
       </AuthProvider>
     </Router>
