@@ -1,9 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { useAuth } from "../contexts/AuthContext";
-import { Vote } from "./Vote";
-import { render } from "@testing-library/react";
+import { Button, Card, Row, CardGroup, Container } from "react-bootstrap";
 
 class Avstemming extends React.Component {
   state = {
@@ -30,53 +28,33 @@ class Avstemming extends React.Component {
     return (
       <>
         <Navbar />
-        <div className="Avstemming">
-          <h1>Liste over kandidater</h1>
-          <button onClick={Vote}>Stem</button>
+        <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ marginTop: "2vh" }}>
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <h2 className="text-center mb-2">Alle kandidater</h2>
           {this.state.users &&
             this.state.users.map((user) => {
               return (
-                <div>
-                  <p>
-                    <strong>Navn: </strong>
-                    {user.name}
-                  </p>
-                  <p>
-                    <strong>Nummer: </strong>
-                    {user.phone}
-                  </p>
-                  <p>
-                    <strong>Nominasjonstekst: </strong>
-                    {user.nomtekst}
-                  </p>
-                  <p>
-                    <strong>Valgbar: </strong>
-                    {String(user.valgbar)}
-                  </p>
-                  <br />
-                  <br />
-                </div>
+                <Row>
+                  <CardGroup>
+                    <Card style={{ marginBottom:"1em"}}>
+                      <Card.Body>
+                        <Card.Title>{user.name}</Card.Title>
+                        <Card.Text>
+                          {user.nomtekst}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </CardGroup>
+                </Row>
               );
             })}
-        </div>
+            </div>
+            </Container>
       </>
     );
   }
 }
 
 export default Avstemming;
-
-/*
-export function vote() {
-  docRef.get().then((doc) => {
-      if (doc.exists) {
-        alert("Du har allerede avlagt din stemme.");
-      } else {
-        alert("Din stemme er nå registrert.");
-      }
-  }).catch((error) => {
-      console.log("Error getting document:", error);
-  });
-  
-  }
-*/
