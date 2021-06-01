@@ -8,6 +8,7 @@ import Dropdown from "./Dropdown";
 const Kandidater = () => {
   const { currentUser } = useAuth();
   const [setEmail] = useState("");
+  const [studentNr, setStudentNr] = useState("");
   const [vote, setVote] = useState("");
 
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,7 @@ const Kandidater = () => {
       .add({
         email: currentUser.email,
         vote: vote,
+        studentNr: studentNr,
       })
 
       .then(() => {
@@ -46,6 +48,13 @@ const Kandidater = () => {
                   value={currentUser.email}
                   onChange={(e) => setEmail(e.target.value)}
                   hidden
+                />
+              </Form.Group>
+              <Form.Group id="studentNr">
+                <Form.Control
+                  value={studentNr}
+                  onChange={(e) => setStudentNr(e.target.value)}
+                  
                 />
               </Form.Group>
               <Form.Group>

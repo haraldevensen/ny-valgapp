@@ -35,7 +35,7 @@ class Dropdown extends React.Component {
               <Form.Control
                 as="select"
               >
-              <option disabled selected hidden></option>
+              <option selected disabled > </option>
                 {this.state.users &&
                   this.state.users.map((user) => {
                     return <option value={user.phone}>{user.name}</option>;

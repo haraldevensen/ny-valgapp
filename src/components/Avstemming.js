@@ -42,7 +42,7 @@ class Avstemming extends React.Component {
                   <CardGroup>
                     <Card style={{ marginBottom:"1em"}}>
                       <Card.Body>
-                        <Card.Title>{user.name}</Card.Title>
+                        <Card.Title>{user.name}, {user.studentNr}</Card.Title>
                         <Card.Text>
                           {user.nomtekst}
                         </Card.Text>
