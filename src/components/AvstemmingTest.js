@@ -33,7 +33,30 @@ const AvstemmingTest = () => {
     setLoading(false);
   };
 
-  return (
+
+ class AvstemmingTest extends React.Component {
+    state = {
+      users: null,
+    };
+  
+    componentDidMount() {
+      console.log("mounted");
+      db.collection("users")
+        .get()
+        .then((snapshot) => {
+          const users = [];
+          snapshot.forEach((doc) => {
+            const data = doc.data();
+            users.push(data);
+          });
+          this.setState({ users: users });
+          // console.log(snapshot)
+        })
+        .catch((error) => console.log(error));
+    }
+
+   render(){
+   return (
     <>
       <Navbar />
       <SentrertBoks>
@@ -51,12 +74,12 @@ const AvstemmingTest = () => {
                   hidden
                 />
               </Form.Group>
-
+              {this.state.users &&
+            this.state.users.map((user) => {
+              return (
               <Form.Group id="studie">
                 <Form.Label>Kandidat</Form.Label>
-                {this.state.users &&
-              this.state.users.map((user) => {
-                return (
+              
                 <Form.Control
                   as="select"
                   value={vote}
@@ -64,15 +87,12 @@ const AvstemmingTest = () => {
                   required
                 >
                   <option value="" disabled selected hidden></option>
-                  <option value="">{user.name}</option>
-                  <option value="IT2">ITIS 2.år</option>
-                  <option value="IT3">ITIS 3.år</option>
+                  <option value={user.phone}>{user.name}</option>
                 </Form.Control>
-                );
-              })}
               </Form.Group>
+              );
+            })}
               <Button disabled={loading} className="w-100" type="submit">
-                {" "}
                 Registrer stemme
               </Button>
             </Form>
@@ -81,27 +101,8 @@ const AvstemmingTest = () => {
       </SentrertBoks>
     </>
   );
-};
+ }
+}
+}
 
 export default AvstemmingTest;
-
-/*
-{this.state.users &&
-              this.state.users.map((user) => {
-                return (
-                  <Row>
-                    <CardGroup>
-                      <Card style={{ marginBottom: "1em" }}>
-                        <Card.Body>
-                          <Card.Title>{user.name}</Card.Title>
-                          <Card.Text>{user.nomtekst}</Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                          <Button>Stem</Button>
-                        </Card.Footer>
-                      </Card>
-                    </CardGroup>
-                  </Row>
-                );
-              })}
-              */
