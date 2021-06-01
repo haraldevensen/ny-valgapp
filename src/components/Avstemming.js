@@ -1,12 +1,15 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { Button } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext"; 
+import { Vote } from "./Vote"; 
 
-const docRef = db.collection("votes").doc("233585@usn.no");
 
 
+export default function Avstemming() {
+/* var { currentUser } = useAuth();
+var docRef = db.collection("votes").doc(currentUser.email);
+*/
 class Avstemming extends React.Component {
   state = {
     users: null,
@@ -28,7 +31,9 @@ class Avstemming extends React.Component {
       .catch((error) => console.log(error));
   }
 
-  render() {
+}
+
+ 
     return (
       <>
         <Navbar />
@@ -38,7 +43,7 @@ class Avstemming extends React.Component {
             this.state.users.map((user) => {
               return (
                 <div>
-                  <button onClick={vote()}>Stem</button>
+                  <button onClick={Vote()}>Stem</button>
                   <p>
                     <strong>Navn: </strong>
                     {user.name}
@@ -62,21 +67,20 @@ class Avstemming extends React.Component {
             })}
         </div>
       </>
-    );
+    )
+}
+
+/*
+export function vote() {
+  docRef.get().then((doc) => {
+      if (doc.exists) {
+        alert("Du har allerede avlagt din stemme.");
+      } else {
+        alert("Din stemme er nå registrert.");
+      }
+  }).catch((error) => {
+      console.log("Error getting document:", error);
+  });
+  
   }
-}
-
-function vote() {
-docRef.get().then((doc) => {
-    if (doc.exists) {
-      alert("Du har allerede avlagt din stemme.");
-    } else {
-      alert("Din stemme er nå registrert.");
-    }
-}).catch((error) => {
-    console.log("Error getting document:", error);
-});
-
-}
-
-export default Avstemming;
+*/
