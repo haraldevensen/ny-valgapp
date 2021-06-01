@@ -6,9 +6,9 @@ import { useAuth } from "../contexts/AuthContext";
 
 
 
-export function vote() {
+export function Vote() {
 
-  var { currentUser } = useAuth();
+var { currentUser } = useAuth();
 var docRef = db.collection("votes").doc(currentUser.email);
 
 
