@@ -2,6 +2,10 @@ import React from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
 import { Button } from "react-bootstrap";
+import { useAuth } from "../contexts/AuthContext"; 
+
+const docRef = db.collection("votes").doc("233585@usn.no");
+
 
 class Avstemming extends React.Component {
   state = {
@@ -34,7 +38,7 @@ class Avstemming extends React.Component {
             this.state.users.map((user) => {
               return (
                 <div>
-                  <Button>Stem</Button>
+                  <button onClick={vote()}>Stem</button>
                   <p>
                     <strong>Navn: </strong>
                     {user.name}
@@ -60,6 +64,19 @@ class Avstemming extends React.Component {
       </>
     );
   }
+}
+
+function vote() {
+docRef.get().then((doc) => {
+    if (doc.exists) {
+      alert("Du har allerede avlagt din stemme.");
+    } else {
+      alert("Din stemme er nå registrert.");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+
 }
 
 export default Avstemming;
