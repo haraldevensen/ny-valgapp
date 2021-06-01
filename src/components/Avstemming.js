@@ -3,13 +3,8 @@ import Navbar from "./Navbar";
 import { db } from "../firebase";
 import { useAuth } from "../contexts/AuthContext"; 
 import { Vote } from "./Vote"; 
+import { render } from "@testing-library/react";
 
-// test
-
-export default function Avstemming() {
-/* var { currentUser } = useAuth();
-var docRef = db.collection("votes").doc(currentUser.email);
-*/
 class Avstemming extends React.Component {
   state = {
     users: null,
@@ -31,9 +26,9 @@ class Avstemming extends React.Component {
       .catch((error) => console.log(error));
   }
 
-}
 
- 
+
+ render() {
     return (
       <>
         <Navbar />
@@ -43,7 +38,7 @@ class Avstemming extends React.Component {
             this.state.users.map((user) => {
               return (
                 <div>
-                  <button onClick={Vote()}>Stem</button>
+                  <button onClick={Vote}>Stem</button>
                   <p>
                     <strong>Navn: </strong>
                     {user.name}
@@ -69,6 +64,9 @@ class Avstemming extends React.Component {
       </>
     )
 }
+}
+
+export default Avstemming;
 
 /*
 export function vote() {
