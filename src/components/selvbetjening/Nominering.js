@@ -9,7 +9,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const Nominering = () => {
   const { currentUser } = useAuth()
-  const [email, setEmail] = useState("");
+  const [setEmail] = useState("");
   const [name, setName] = useState("");
   const [tlf, setTlf] = useState("");
   const [nomtekst, setNomtekst] = useState("");

@@ -14,6 +14,9 @@ export default function Landingsside() {
         <Link to="/sandkasse">
           <FontAwesomeIcon icon={faKeyboard} /> Sandkasse (Prosjekt: Harald)
         </Link>
+        <Link to="/dropdown">
+           Dropdown
+        </Link>
       </div>
     </>
   );

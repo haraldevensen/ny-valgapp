@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { Button, Card, Row, CardGroup, Container } from "react-bootstrap";
+import { Card, Row, CardGroup, Container } from "react-bootstrap";
+import Kandidater from "./Kandidater";
 
 class Avstemming extends React.Component {
   state = {
@@ -28,6 +29,7 @@ class Avstemming extends React.Component {
     return (
       <>
         <Navbar />
+        <Kandidater />
         <Container
         className="d-flex align-items-center justify-content-center"
         style={{ marginTop: "2vh" }}>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import Navbar from "./Navbar";
 import { db } from "../firebase";
 import { Card, Form, Alert, Button, Col, Container } from "react-bootstrap";
 import SentrertBoks from "./SentrertBoks";
+import Dropdown from "./Dropdown";
 
-const AvstemmingTest = () => {
+const Kandidater = () => {
   const { currentUser } = useAuth();
   const [setEmail] = useState("");
   const [vote, setVote] = useState("");
@@ -33,9 +33,8 @@ const AvstemmingTest = () => {
     setLoading(false);
   };
 
-   return (
+  return (
     <>
-      <Navbar />
       <SentrertBoks>
         <Card>
           <Card.Body>
@@ -46,23 +45,12 @@ const AvstemmingTest = () => {
                 <Form.Control
                   value={currentUser.email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
-                  readOnly
                   hidden
                 />
               </Form.Group>
-              <Form.Group id="studie">
-                <Form.Label>Kandidat</Form.Label>
-              
-                <Form.Control
-                  as="select"
-                  value={vote}
-                  onChange={(e) => setVote(e.target.value)}
-                  required
-                >
-                  <option value="" disabled selected hidden></option>
-                  <option value="kandidat1">Kandidat 1</option>
-                </Form.Control>
+              <Form.Group>
+                
+                <Dropdown />
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Registrer stemme
@@ -73,6 +61,6 @@ const AvstemmingTest = () => {
       </SentrertBoks>
     </>
   );
-}
+};
 
-export default AvstemmingTest;
+export default Kandidater;

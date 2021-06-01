@@ -20,7 +20,7 @@ import Registrering from "./autentisering/Registrering";
 import GlemtPassord from "./autentisering/GlemtPassord";
 
 // Testing
-import AvstemmingTest from "./AvstemmingTest";
+import Dropdown from "./Dropdown"
 
 function App() {
   return (
@@ -43,7 +43,7 @@ function App() {
           <Route path="/glemt-passord" component={GlemtPassord} />
           
           {/* Testing */}
-          <PrivateRoute path="/sandkasse" component={AvstemmingTest} />
+          <PrivateRoute path="/dropdown" component={Dropdown} />
         </Switch>
       </AuthProvider>
     </Router>
