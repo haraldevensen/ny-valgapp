@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import { useAuth } from "../contexts/AuthContext"; 
 import { Vote } from "./Vote"; 
 
-
+// test
 
 export default function Avstemming() {
 /* var { currentUser } = useAuth();
