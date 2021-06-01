@@ -33,29 +33,6 @@ const AvstemmingTest = () => {
     setLoading(false);
   };
 
-
- class AvstemmingTest extends React.Component {
-    state = {
-      users: null,
-    };
-  
-    componentDidMount() {
-      console.log("mounted");
-      db.collection("users")
-        .get()
-        .then((snapshot) => {
-          const users = [];
-          snapshot.forEach((doc) => {
-            const data = doc.data();
-            users.push(data);
-          });
-          this.setState({ users: users });
-          // console.log(snapshot)
-        })
-        .catch((error) => console.log(error));
-    }
-
-   render(){
    return (
     <>
       <Navbar />
@@ -74,9 +51,6 @@ const AvstemmingTest = () => {
                   hidden
                 />
               </Form.Group>
-              {this.state.users &&
-            this.state.users.map((user) => {
-              return (
               <Form.Group id="studie">
                 <Form.Label>Kandidat</Form.Label>
               
@@ -87,11 +61,9 @@ const AvstemmingTest = () => {
                   required
                 >
                   <option value="" disabled selected hidden></option>
-                  <option value={user.phone}>{user.name}</option>
+                  <option value="kandidat1">Kandidat 1</option>
                 </Form.Control>
               </Form.Group>
-              );
-            })}
               <Button disabled={loading} className="w-100" type="submit">
                 Registrer stemme
               </Button>
@@ -101,8 +73,6 @@ const AvstemmingTest = () => {
       </SentrertBoks>
     </>
   );
- }
-}
 }
 
 export default AvstemmingTest;
