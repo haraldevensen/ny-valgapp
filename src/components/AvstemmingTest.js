@@ -1,63 +1,107 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { Button, Card, Row, CardGroup, Container } from "react-bootstrap";
+import { Card, Form, Alert, Button, Col, Container } from "react-bootstrap";
+import SentrertBoks from "./SentrertBoks";
 
-class AvstemmingTest extends React.Component {
-  state = {
-    users: null,
+const AvstemmingTest = () => {
+  const { currentUser } = useAuth();
+  const [setEmail] = useState("");
+  const [vote, setVote] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleVote = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    db.collection("test")
+      .add({
+        email: currentUser.email,
+        vote: vote,
+      })
+
+      .then(() => {
+        setMessage("Din stemme er nå registrert.");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+
+    setLoading(false);
   };
 
-  componentDidMount() {
-    console.log("mounted");
-    db.collection("users")
-      .get()
-      .then((snapshot) => {
-        const users = [];
-        snapshot.forEach((doc) => {
-          const data = doc.data();
-          users.push(data);
-        });
-        this.setState({ users: users });
-        // console.log(snapshot)
-      })
-      .catch((error) => console.log(error));
-  }
+  return (
+    <>
+      <Navbar />
+      <SentrertBoks>
+        <Card>
+          <Card.Body>
+            <Form onSubmit={handleVote}>
+              <h2 className="text-center mb-4">Stem her!</h2>
+              {message && <Alert variant="success">{message}</Alert>}
+              <Form.Group id="email">
+                <Form.Control
+                  value={currentUser.email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  readOnly
+                  hidden
+                />
+              </Form.Group>
 
-  render() {
-    return (
-      <>
-        <Navbar />
-        <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ marginTop: "2vh" }}>
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          <h2 className="text-center mb-2">Alle kandidater</h2>
-          {this.state.users &&
-            this.state.users.map((user) => {
-              return (
-                <Row>
-                  <CardGroup>
-                    <Card style={{ marginBottom:"1em"}}>
-                      <Card.Body>
-                        <Card.Title>{user.name}</Card.Title>
-                        <Card.Text>
-                          {user.nomtekst}
-                        </Card.Text>
-                      </Card.Body>
-                      <Card.Footer>
-                        <Button>Stem</Button>
-                      </Card.Footer>
-                    </Card>
-                  </CardGroup>
-                </Row>
-              );
-            })}
-            </div>
-            </Container>
-      </>
-    );
-  }
-}
+              <Form.Group id="studie">
+                <Form.Label>Kandidat</Form.Label>
+                {this.state.users &&
+              this.state.users.map((user) => {
+                return (
+                <Form.Control
+                  as="select"
+                  value={vote}
+                  onChange={(e) => setVote(e.target.value)}
+                  required
+                >
+                  <option value="" disabled selected hidden></option>
+                  <option value="">{user.name}</option>
+                  <option value="IT2">ITIS 2.år</option>
+                  <option value="IT3">ITIS 3.år</option>
+                </Form.Control>
+                );
+              })}
+              </Form.Group>
+              <Button disabled={loading} className="w-100" type="submit">
+                {" "}
+                Registrer stemme
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </SentrertBoks>
+    </>
+  );
+};
 
 export default AvstemmingTest;
+
+/*
+{this.state.users &&
+              this.state.users.map((user) => {
+                return (
+                  <Row>
+                    <CardGroup>
+                      <Card style={{ marginBottom: "1em" }}>
+                        <Card.Body>
+                          <Card.Title>{user.name}</Card.Title>
+                          <Card.Text>{user.nomtekst}</Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                          <Button>Stem</Button>
+                        </Card.Footer>
+                      </Card>
+                    </CardGroup>
+                  </Row>
+                );
+              })}
+              */

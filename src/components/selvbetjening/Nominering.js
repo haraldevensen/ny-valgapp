@@ -5,8 +5,11 @@ import SentrertBoks from "../SentrertBoks";
 import { Card, Form, Alert, Button, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Nominering = () => {
+  const { currentUser } = useAuth()
+  const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [tlf, setTlf] = useState("");
   const [nomtekst, setNomtekst] = useState("");
@@ -20,6 +23,7 @@ const Nominering = () => {
 
     db.collection("nominering")
       .add({
+        email: currentUser.email,
         name: name,
         tlf: tlf,
         nomtekst: nomtekst,
@@ -47,6 +51,15 @@ const Nominering = () => {
             <Form onSubmit={handleSubmit}>
               <h2 className="text-center mb-4">Nominering</h2>
               {message && <Alert variant="success">{message}</Alert>}
+              <Form.Group id="email">
+                <Form.Label>E-post</Form.Label>
+                <Form.Control
+                  value={currentUser.email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  readOnly
+                />
+              </Form.Group>
               <Form.Group id="name">
                 <Form.Label>Navn</Form.Label>
                 <Form.Control

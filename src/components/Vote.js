@@ -9,7 +9,7 @@ import { db } from "../firebase";
 export function Vote() {
 
 //var { currentUser } = useAuth();
-var docRef = db.collection("votes").doc("233445@usn.no");
+var docRef = db.collection("votes").doc("233576@usn.no");
 
 
   docRef.get().then((doc) => {

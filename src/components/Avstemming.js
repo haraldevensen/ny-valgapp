@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { useAuth } from "../contexts/AuthContext"; 
-import { Vote } from "./Vote"; 
+import { useAuth } from "../contexts/AuthContext";
+import { Vote } from "./Vote";
 import { render } from "@testing-library/react";
 
 class Avstemming extends React.Component {
@@ -26,19 +26,17 @@ class Avstemming extends React.Component {
       .catch((error) => console.log(error));
   }
 
-
-
- render() {
+  render() {
     return (
       <>
         <Navbar />
         <div className="Avstemming">
           <h1>Liste over kandidater</h1>
+          <button onClick={Vote}>Stem</button>
           {this.state.users &&
             this.state.users.map((user) => {
               return (
                 <div>
-                  <button onClick={Vote}>Stem</button>
                   <p>
                     <strong>Navn: </strong>
                     {user.name}
@@ -62,8 +60,8 @@ class Avstemming extends React.Component {
             })}
         </div>
       </>
-    )
-}
+    );
+  }
 }
 
 export default Avstemming;
