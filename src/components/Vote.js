@@ -1,15 +1,15 @@
 
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { useAuth } from "../contexts/AuthContext"; 
+// import { useAuth } from "../contexts/AuthContext"; 
 
 
 
 export function Vote() {
 
-var { currentUser } = useAuth();
-var docRef = db.collection("votes").doc(currentUser.email);
+//var { currentUser } = useAuth();
+var docRef = db.collection("votes").doc("233445@usn.no");
 
 
   docRef.get().then((doc) => {
