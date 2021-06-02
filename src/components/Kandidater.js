@@ -27,28 +27,29 @@ class Kandidater extends React.Component {
     return (
       <>
         <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ marginTop: "2vh" }}>
-        <div className="w-100" style={{ maxWidth: "400px" }}>
-          {this.state.users &&
-            this.state.users.map((user) => {
-              return (
-                <Row>
-                  <CardGroup>
-                    <Card style={{ marginBottom:"1em"}}>
-                      <Card.Body>
-                        <Card.Title>{user.name}, {user.studentNr}</Card.Title>
-                        <Card.Text>
-                          {user.nomtekst}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </CardGroup>
-                </Row>
-              );
-            })}
-            </div>
-            </Container>
+          className="d-flex align-items-center justify-content-center"
+          style={{ marginTop: "2vh" }}
+        >
+          <div className="w-100" style={{ maxWidth: "400px" }}>
+            {this.state.users &&
+              this.state.users.map((user) => {
+                return (
+                  <Row>
+                    <CardGroup>
+                      <Card style={{ marginBottom: "1em" }}>
+                        <Card.Body>
+                          <Card.Title>
+                            {user.name}, {user.studentNr}
+                          </Card.Title>
+                          <Card.Text>{user.nomtekst}</Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </CardGroup>
+                  </Row>
+                );
+              })}
+          </div>
+        </Container>
       </>
     );
   }

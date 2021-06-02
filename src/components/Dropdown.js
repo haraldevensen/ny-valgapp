@@ -22,8 +22,6 @@ class Dropdown extends React.Component {
       })
       .catch((error) => console.log(error));
   }
-  
-  
 
   render() {
     return (
@@ -32,11 +30,10 @@ class Dropdown extends React.Component {
           <Form>
             <Form.Group id="studie">
               <Form.Label>Kandidat</Form.Label>
-              <Form.Control
-                as="select"
-                required
-              >
-              <option selected disabled > </option>
+              <Form.Control as="select" required>
+                <option selected disabled>
+                  {" "}
+                </option>
                 {this.state.users &&
                   this.state.users.map((user) => {
                     return <option value={user.phone}>{user.name}</option>;

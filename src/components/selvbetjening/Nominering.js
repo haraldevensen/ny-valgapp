@@ -8,7 +8,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../contexts/AuthContext";
 
 const Nominering = () => {
-  const { currentUser } = useAuth()
+  const { currentUser } = useAuth();
   const [setEmail] = useState("");
   const [name, setName] = useState("");
   const [tlf, setTlf] = useState("");
@@ -102,9 +102,7 @@ const Nominering = () => {
                 </Form.Group>
               </Form.Row>
               <Form.Group className="nominasjonstekst">
-                <Form.Label>
-                  Nominasjonstekst
-                </Form.Label>
+                <Form.Label>Nominasjonstekst</Form.Label>
                 <Form.Control
                   value={nomtekst}
                   onChange={(e) => setNomtekst(e.target.value)}

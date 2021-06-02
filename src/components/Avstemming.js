@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import { Card, Form, Alert, Button } from "react-bootstrap";
 import SentrertBoks from "./SentrertBoks";
 import Dropdown from "./Dropdown";
-import Kandidater from "./Kandidater"
+import Kandidater from "./Kandidater";
 import Navbar from "./Navbar";
 
 const Avstemming = () => {
@@ -39,7 +39,7 @@ const Avstemming = () => {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <SentrertBoks>
         <Card>
           <Card.Body>
@@ -54,20 +54,22 @@ const Avstemming = () => {
                 />
               </Form.Group>
               <Form.Control
-                  value={vote}
-                  onChange={(e) => setVote(e.target.value)}
-                  hidden
-                />
-                <Dropdown />
+                value={vote}
+                onChange={(e) => setVote(e.target.value)}
+                hidden
+              />
+              <Dropdown />
               <Form.Group>
-              <Form.Group id="studentNr">
-              <Form.Label>Bekreft med studentnummeret på kandidat</Form.Label>
-                <Form.Control
-                  value={studentNr}
-                  onChange={(e) => setStudentNr(e.target.value)}
-                  required
-                />
-              </Form.Group>
+                <Form.Group id="studentNr">
+                  <Form.Label>
+                    Bekreft med studentnummeret på kandidat
+                  </Form.Label>
+                  <Form.Control
+                    value={studentNr}
+                    onChange={(e) => setStudentNr(e.target.value)}
+                    required
+                  />
+                </Form.Group>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Registrer stemme

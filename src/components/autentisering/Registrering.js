@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 
 export default function Registrering() {
   const emailRef = useRef();
@@ -40,43 +40,47 @@ export default function Registrering() {
 
   return (
     <>
-    <Navbar />
-    <SentrertBoks>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Registrering</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>E-post</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>
-                Passord
-                <Form.Text className="text-muted">
-                  Passord må bestå av minst 6 tegn.
-                </Form.Text>
-              </Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Gjenta passord</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Registrer <FontAwesomeIcon icon={faUserPlus} />
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Har du allerede en konto?{" "}
-        <Link to="/innlogging">
-          Logg inn <FontAwesomeIcon icon={faSignInAlt} />
-        </Link>
-      </div>
-    </SentrertBoks>
+      <Navbar />
+      <SentrertBoks>
+        <Card>
+          <Card.Body>
+            <h2 className="text-center mb-4">Registrering</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>E-post</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>
+                  Passord
+                  <Form.Text className="text-muted">
+                    Passord må bestå av minst 6 tegn.
+                  </Form.Text>
+                </Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm">
+                <Form.Label>Gjenta passord</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
+              <Button disabled={loading} className="w-100" type="submit">
+                Registrer <FontAwesomeIcon icon={faUserPlus} />
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          Har du allerede en konto?{" "}
+          <Link to="/innlogging">
+            Logg inn <FontAwesomeIcon icon={faSignInAlt} />
+          </Link>
+        </div>
+      </SentrertBoks>
     </>
   );
 }

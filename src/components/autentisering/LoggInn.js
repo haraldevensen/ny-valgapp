@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 
 export default function LoggInn() {
   const emailRef = useRef();
@@ -32,37 +32,37 @@ export default function LoggInn() {
 
   return (
     <>
-    <Navbar />
-    <SentrertBoks>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Logg inn</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>E-post</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Passord</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Logg inn <FontAwesomeIcon icon={faSignInAlt} />
-            </Button>
-          </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/glemt-passord">Glemt passord?</Link>
-          </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Trenger du en konto?{" "}
-        <Link to="/registrering">
-          Registrer her <FontAwesomeIcon icon={faUserPlus} />
-        </Link>
-      </div>
-    </SentrertBoks>
+      <Navbar />
+      <SentrertBoks>
+        <Card>
+          <Card.Body>
+            <h2 className="text-center mb-4">Logg inn</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email">
+                <Form.Label>E-post</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password">
+                <Form.Label>Passord</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Button disabled={loading} className="w-100" type="submit">
+                Logg inn <FontAwesomeIcon icon={faSignInAlt} />
+              </Button>
+            </Form>
+            <div className="w-100 text-center mt-3">
+              <Link to="/glemt-passord">Glemt passord?</Link>
+            </div>
+          </Card.Body>
+        </Card>
+        <div className="w-100 text-center mt-2">
+          Trenger du en konto?{" "}
+          <Link to="/registrering">
+            Registrer her <FontAwesomeIcon icon={faUserPlus} />
+          </Link>
+        </div>
+      </SentrertBoks>
     </>
   );
 }

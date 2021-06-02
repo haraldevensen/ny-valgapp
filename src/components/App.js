@@ -18,7 +18,7 @@ import Nominering from "./selvbetjening/Nominering";
 import LoggInn from "./autentisering/LoggInn";
 import Registrering from "./autentisering/Registrering";
 import GlemtPassord from "./autentisering/GlemtPassord";
-import Hjelp from "./autentisering/Hjelp"
+import Hjelp from "./autentisering/Hjelp";
 
 function App() {
   return (

@@ -13,4 +13,3 @@ export default function SentrertBoks({ children }) {
     </Container>
   );
 }
-
