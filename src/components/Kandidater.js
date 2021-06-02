@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import { db } from "../firebase";
 import { Card, Row, CardGroup, Container } from "react-bootstrap";
 
@@ -31,7 +30,6 @@ class Kandidater extends React.Component {
         className="d-flex align-items-center justify-content-center"
         style={{ marginTop: "2vh" }}>
         <div className="w-100" style={{ maxWidth: "400px" }}>
-          <h2 className="text-center mb-2">Alle kandidater</h2>
           {this.state.users &&
             this.state.users.map((user) => {
               return (

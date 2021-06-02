@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar"
 
 export default function GlemtPassord() {
   const emailRef = useRef();
@@ -30,6 +31,8 @@ export default function GlemtPassord() {
   }
 
   return (
+    <>
+    <Navbar />
     <SentrertBoks>
       <Card>
         <Card.Body>
@@ -59,5 +62,6 @@ export default function GlemtPassord() {
         </Link>
       </div>
     </SentrertBoks>
+    </>
   );
 }

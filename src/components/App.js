@@ -18,9 +18,7 @@ import Nominering from "./selvbetjening/Nominering";
 import LoggInn from "./autentisering/LoggInn";
 import Registrering from "./autentisering/Registrering";
 import GlemtPassord from "./autentisering/GlemtPassord";
-
-// Testing
-import Dropdown from "./Dropdown"
+import Hjelp from "./autentisering/Hjelp"
 
 function App() {
   return (
@@ -41,9 +39,7 @@ function App() {
           <Route path="/registrering" component={Registrering} />
           <Route path="/innlogging" component={LoggInn} />
           <Route path="/glemt-passord" component={GlemtPassord} />
-          
-          {/* Testing */}
-          <PrivateRoute path="/dropdown" component={Dropdown} />
+          <Route path="/hjelp" component={Hjelp} />
         </Switch>
       </AuthProvider>
     </Router>

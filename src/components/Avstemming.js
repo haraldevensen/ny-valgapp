@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";
-import { Card, Form, Alert, Button, Col, Container } from "react-bootstrap";
+import { Card, Form, Alert, Button } from "react-bootstrap";
 import SentrertBoks from "./SentrertBoks";
 import Dropdown from "./Dropdown";
 import Kandidater from "./Kandidater"

@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import SentrertBoks from "./SentrertBoks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar"
 
 export default function LoggInn() {
   const emailRef = useRef();
@@ -30,6 +31,8 @@ export default function LoggInn() {
   }
 
   return (
+    <>
+    <Navbar />
     <SentrertBoks>
       <Card>
         <Card.Body>
@@ -60,5 +63,6 @@ export default function LoggInn() {
         </Link>
       </div>
     </SentrertBoks>
+    </>
   );
 }
