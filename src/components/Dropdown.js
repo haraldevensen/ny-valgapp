@@ -34,6 +34,7 @@ class Dropdown extends React.Component {
               <Form.Label>Kandidat</Form.Label>
               <Form.Control
                 as="select"
+                required
               >
               <option selected disabled > </option>
                 {this.state.users &&

@@ -28,7 +28,7 @@ const Avstemming = () => {
       })
 
       .then(() => {
-        setMessage("Din stemme er nå registrert.");
+        setMessage("Din stemme er nå registrert/oppdatert.");
       })
       .catch((error) => {
         alert(error.message);
@@ -53,13 +53,6 @@ const Avstemming = () => {
                   hidden
                 />
               </Form.Group>
-              <Form.Group id="studentNr">
-                <Form.Control
-                  value={studentNr}
-                  onChange={(e) => setStudentNr(e.target.value)}
-                  
-                />
-              </Form.Group>
               <Form.Control
                   value={vote}
                   onChange={(e) => setVote(e.target.value)}
@@ -67,6 +60,14 @@ const Avstemming = () => {
                 />
                 <Dropdown />
               <Form.Group>
+              <Form.Group id="studentNr">
+              <Form.Label>Bekreft med studentnummeret på kandidat</Form.Label>
+                <Form.Control
+                  value={studentNr}
+                  onChange={(e) => setStudentNr(e.target.value)}
+                  required
+                />
+              </Form.Group>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
                 Registrer stemme
