@@ -1,75 +1,59 @@
-import React, { useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
+import React from "react";
+import Navbar from "./Navbar";
 import { db } from "../firebase";
-import { Card, Form, Alert, Button, Col, Container } from "react-bootstrap";
-import SentrertBoks from "./SentrertBoks";
-import Dropdown from "./Dropdown";
+import { Card, Row, CardGroup, Container } from "react-bootstrap";
 
-const Kandidater = () => {
-  const { currentUser } = useAuth();
-  const [setEmail] = useState("");
-  const [studentNr, setStudentNr] = useState("");
-  const [vote, setVote] = useState("");
-
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-
-  const handleVote = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    db.collection("test")
-      .add({
-        email: currentUser.email,
-        vote: vote,
-        studentNr: studentNr,
-      })
-
-      .then(() => {
-        setMessage("Din stemme er nå registrert.");
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-
-    setLoading(false);
+class Kandidater extends React.Component {
+  state = {
+    users: null,
   };
 
-  return (
-    <>
-      <SentrertBoks>
-        <Card>
-          <Card.Body>
-            <Form onSubmit={handleVote}>
-              <h2 className="text-center mb-4">Stem her!</h2>
-              {message && <Alert variant="success">{message}</Alert>}
-              <Form.Group id="email">
-                <Form.Control
-                  value={currentUser.email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  hidden
-                />
-              </Form.Group>
-              <Form.Group id="studentNr">
-                <Form.Control
-                  value={studentNr}
-                  onChange={(e) => setStudentNr(e.target.value)}
-                  
-                />
-              </Form.Group>
-              <Form.Group>
-                
-                <Dropdown />
-              </Form.Group>
-              <Button disabled={loading} className="w-100" type="submit">
-                Registrer stemme
-              </Button>
-            </Form>
-          </Card.Body>
-        </Card>
-      </SentrertBoks>
-    </>
-  );
-};
+  componentDidMount() {
+    console.log("mounted");
+    db.collection("users")
+      .get()
+      .then((snapshot) => {
+        const users = [];
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          users.push(data);
+        });
+        this.setState({ users: users });
+        // console.log(snapshot)
+      })
+      .catch((error) => console.log(error));
+  }
+
+  render() {
+    return (
+      <>
+        <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ marginTop: "2vh" }}>
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <h2 className="text-center mb-2">Alle kandidater</h2>
+          {this.state.users &&
+            this.state.users.map((user) => {
+              return (
+                <Row>
+                  <CardGroup>
+                    <Card style={{ marginBottom:"1em"}}>
+                      <Card.Body>
+                        <Card.Title>{user.name}, {user.studentNr}</Card.Title>
+                        <Card.Text>
+                          {user.nomtekst}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </CardGroup>
+                </Row>
+              );
+            })}
+            </div>
+            </Container>
+      </>
+    );
+  }
+}
 
 export default Kandidater;
