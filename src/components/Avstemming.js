@@ -6,6 +6,8 @@ import SentrertBoks from "./SentrertBoks";
 import Dropdown from "./Dropdown";
 import Kandidater from "./Kandidater";
 import Navbar from "./Navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVoteYea } from "@fortawesome/free-solid-svg-icons";
 
 const Avstemming = () => {
   const { currentUser } = useAuth();
@@ -72,7 +74,7 @@ const Avstemming = () => {
                 </Form.Group>
               </Form.Group>
               <Button disabled={loading} className="w-100" type="submit">
-                Registrer stemme
+                <FontAwesomeIcon icon={faVoteYea} /> Registrer stemme
               </Button>
             </Form>
           </Card.Body>
