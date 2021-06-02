@@ -1,3 +1,5 @@
+// firebase.js importerer tilgang til firebase fra .env-filen.
+
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";

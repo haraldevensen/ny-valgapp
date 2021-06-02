@@ -1,3 +1,5 @@
+// Navbar.js viser navigeringen øverst på sidene.
+
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";

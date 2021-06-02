@@ -1,3 +1,5 @@
+// SentrertBoks.js setter innholdsboksene i senter av skjermen.
+
 import React from "react";
 import { Container } from "react-bootstrap";
 

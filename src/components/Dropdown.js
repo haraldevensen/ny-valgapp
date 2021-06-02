@@ -1,3 +1,5 @@
+// Dropdown.js viser nedtrekksmenyen på Avstemmingssiden.
+
 import React from "react";
 import { db } from "../firebase";
 import { Form } from "react-bootstrap";

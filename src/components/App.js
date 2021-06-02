@@ -1,3 +1,5 @@
+// App.js navigerer for oss. Til dette har vi brukt react-router-dom.
+
 import React from "react";
 import "./App.css";
 import { AuthProvider } from "../contexts/AuthContext";

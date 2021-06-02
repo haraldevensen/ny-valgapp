@@ -1,3 +1,5 @@
+// Navbar.js viser navigeringen øverst på sidene.
+
 import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";

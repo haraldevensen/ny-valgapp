@@ -1,3 +1,5 @@
+// GlemtPassord.js sender ut en e-post til registrert konto for å tibakestille passord.
+
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";

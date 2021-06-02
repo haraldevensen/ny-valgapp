@@ -1,3 +1,5 @@
+// Kandidater.js henter ut kandidater fra firestore.
+
 import React from "react";
 import { db } from "../firebase";
 import { Card, Row, CardGroup, Container } from "react-bootstrap";

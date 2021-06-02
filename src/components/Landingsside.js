@@ -1,3 +1,5 @@
+// Landingsside. js er siden man kommer til etter man er logget inn eller registrert bruker. Den forteller litt om hva Vestfold valgapp gjør.
+
 import React from "react";
 import { Card } from "react-bootstrap";
 import Navbar from "./Navbar";

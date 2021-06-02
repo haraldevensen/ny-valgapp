@@ -1,3 +1,5 @@
+// Support.js fungerer som en side for å få hjelp. Fungerer helt likt som Hjelp.js
+
 import React from "react";
 import { Card } from "react-bootstrap";
 import Navbar from "./Navbar";

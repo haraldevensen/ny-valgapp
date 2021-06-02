@@ -1,3 +1,5 @@
+// Registrering.js registrerer brukere. Kun "@usn.no" får registrert seg.
+
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";

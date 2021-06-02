@@ -1,3 +1,5 @@
+// Avstemming.js registerer stemmer i databasen fra Form.
+
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";

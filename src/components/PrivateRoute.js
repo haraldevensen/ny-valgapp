@@ -1,3 +1,5 @@
+// PrivateRoute.js gjør at kun innloggete brukere får tilgang til sidene som er etter innlogging.
+
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
