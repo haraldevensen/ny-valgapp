@@ -20,7 +20,7 @@ const Avstemming = () => {
     e.preventDefault();
     setLoading(true);
 
-    db.collection("test")
+    db.collection("votes")
       .add({
         email: currentUser.email,
         vote: vote,
