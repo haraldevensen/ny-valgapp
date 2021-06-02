@@ -41,10 +41,10 @@ class Support extends React.Component {
               <Card.Body>
                 <h2 className="text-center mb-4">Support</h2>
                 <Card.Text>
-                  Noe du ikke får til? Vi er her for å hjelpe deg!
+                 Noe du ikke får til? Vi er her for å hjelpe deg!
                 </Card.Text>
                 <Card.Text>
-                  Vi er tilgjengelig på e-post, telefon og livechat.
+                 Vi er tilgjengelig på e-post, telefon og livechat.
                 </Card.Text>
                 <Card.Text>
                   <strong>
